@@ -1,0 +1,38 @@
+    <div class="container">   
+      <%= form_for @product, url: {action: :create} do |f| %>   
+          <div>   
+            <u><h3>Add a Product</u></h3>   
+          </div>   
+          <div>   
+            <p>   
+              <%= "<div>#{@product.errors.full_messages.first}</div>".html_safe if @product.errors.any? %>  
+                
+            <div> <table class="table table-bordered table-striped" >  
+                <label>Product Name</label>   
+                  <%= f.select(:name, Product::List)%>   
+            </div>   
+      
+            <div>   
+                 <label>Price</label>   
+                 <%= f.select(:price, Product::List1) %>   
+            </div>   
+      
+            <div>   
+               <label>Description</label>   
+                  <%= f.select(:short_description, Product::List2) %>   
+            </div>
+            <div>   
+               <label>Description</label>   
+                  <%= f.text_field :full_description %>   
+            </div>   
+             </p>   
+          </div>   
+          <div>   
+            <%= link_to 'Back', { controller: 'products', action: 'index'} %>   
+            <%= f.submit 'Create Product' %>   
+          </div>  
+          </table> 
+      <% end %>   
+    </div>  
+
+    

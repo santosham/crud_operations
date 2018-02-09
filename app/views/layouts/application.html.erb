@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head >
+  <title>Crud_operations</title>
+
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' %>
+  <%= stylesheet_link_tag    'https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.css' %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+ <body > 
+
+  
+
+  <div id= "banner" > 
+    <%= image_tag("flowers-jpg", height: '32', width: '32') %>
+    <%= @page_title || "*stocks*" %> </div>
+
+<table>
+    <div id="user_header", align="right">  
+  <% if current_user %>  
+    Logged in as <%= current_user.email %>.  
+    <%= link_to "Log Out", logout_path %>  
+  <% else %>  
+    <%= link_to "Sign Up", signup_path,  class: "btn btn-primary" %> || 
+    <%= link_to   "Log In", login_path %>  
+  <% end %>  
+</div>  
+<% flash.each do |key, value| %>  
+  <%= content_tag(:div, class: "alert alert-#{key}") do %>  
+    <p><%= value %></p>  
+  <% end %>  
+<% end %>
+
+     </table>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <% if flash[:notice] %>
+          <div class="alert alert-success"><%= flash[:notice] %></div>
+      <% end %>
+      <%= yield %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' %>
+<%= javascript_include_tag 'https://cdn.datatables.net/s/dt/dt-1.10.10,r-2.0.0/datatables.min.js' %>
+</body>
+</html>

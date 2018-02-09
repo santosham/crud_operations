@@ -1,0 +1,59 @@
+      
+    <!DOCTYPE html>   
+    <html>   
+    <body>  
+
+    	<div id="product_list">
+     <div class="container"> 
+               <br>   
+     
+        <h3>STOCK LIST</h3>
+      
+         <%= will_paginate @products %>
+          <div>   
+            <%= link_to 'Add Product', new_product_path,  class: "btn btn-primary"  %>   
+          </div>   
+      
+        <table class="table table-bordered table-striped" >  
+                 
+          <tr>   
+            <th>Name</th>   
+            <th>Price</th>   
+            <th>Description</th>   
+            <th>Actions</th>   
+          </tr>   
+          </thead>   
+          <tbody> 
+       
+          <% @products.each do |product| %>
+          <tr class="<%= cycle('list_line_odd','list_line_odd')%>">
+          	
+          	<td>
+          <marquee direction="round"><%= image_tag('flowers-jpg', :class =>'list_image',  height: '30', width: '32') %></marquee></td> 
+           
+                     <tr id= '<%= product.id %>'>   
+                <td><%= product.name %>
+                <td><%= number_to_currency product.price %></td>   
+                <td><%= truncate(product.short_description, :length => 75) %></td>  
+                </td> 
+                <td><%= truncate(product.full_description, :length => 75) %></td>  
+                </td>
+                   <div>   
+                   <td>   
+                    <%= link_to 'Show', product_path(product) %> </td>  
+                    <td><%= link_to 'Edit', edit_product_path(product) %></td>   
+                    <td  class = "destroy"> Destroy   </td>
+                  </div>   
+                  </tr>   
+                  </tr>
+          <% end %>   
+          </tbody>   
+        </table>  
+
+        </div>   
+    </div>
+
+      </body>   
+    </html>  
+   
+<%= will_paginate @products %>

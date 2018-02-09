@@ -1,0 +1,31 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+#banner { background: #9c9; padding-top: 10px; padding-bottom: 10px; border-bottom: 2px solid; font: small-caps 40px/40px
+"Times New Roman" , serif;
+color: #285; text-align: center;
+}
+#banner img { float: left;  }
+
+}
+<div class="pagination">
+  <span class="previous_page disabled">&#8592; Previous</span>
+  <em class="current">1</em>
+  <a rel="next" href="/products?page=2">2</a>
+  <a href="/products?page=3">3</a>
+  <a href="/products?page=4">4</a>
+  <a class="next_page" rel="next" href="/products?page=2">Next &#8594;</a>
+</div>
